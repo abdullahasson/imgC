@@ -38,10 +38,16 @@ export default function Control() {
         const ctx = canvas.getContext('2d');
         canvas.width = img.width;
         canvas.height = img.height;
+        canvas.style.maxWidth = "400px"
+        canvas.style.maxHeight = "500px"
         ctx.drawImage(img , 0 , 0 , canvas.width , canvas.height)
+        canvas.style.maxWidth = "400px"
+        canvas.style.maxHeight = "500px"
         img.style.display = "none"
         ctx.filter = values
         ctx.drawImage(img , 0 , 0 , canvas.width , canvas.height)
+        canvas.style.maxWidth = "400px"
+        canvas.style.maxHeight = "500px"
 
         const dow = document.getElementById("download");
 
