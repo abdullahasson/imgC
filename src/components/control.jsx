@@ -53,7 +53,6 @@ export default function Control() {
 
         dow.onclick = () => {
             dow.href = canvas.toDataURL();
-            window.location.reload()
         }
     })
 
@@ -92,64 +91,74 @@ export default function Control() {
 
                 <form action="" className="flex flex-col gap-3 p-8 relative" onSubmit={(event) => {event. preventDefault()}}>
 
+                    {/* Brightness */}
+                    <div className="part" style={{ pointerEvents: all}}>
+                        <input type="range" onChange={(e) => {
+                            setBrightness(e.target.value)}} value={brightness} max={3} step={0.1} />
+                        <label htmlFor="">Brightness</label>
+                    </div>
+
+                    {/* Contrast */}
+                    <div className="part" style={{ pointerEvents: all}}>
+                        <input type="range" onChange={(e) => {
+                            setContrast(e.target.value)}} value={contrast} max={3} step={0.1} />
+                        <label htmlFor="">Contrast</label>
+                    </div>
+
+                    {/* saturate */}
+                    <div className="part" style={{ pointerEvents: all}}>
+                        <input type="range" onChange={(e) => {
+                            setSaturate(e.target.value)}} value={saturate} max={3} step={0.1} />
+                        <label htmlFor="">saturate</label>
+                    </div>
+
                     {/* blur */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setBlur(e.target.value)} value={blur} max={10} step={0.1} />
+                        <input type="range" onChange={(e) => {
+                            setBlur(e.target.value)}} value={blur} max={10} step={0.1} />
                         <label htmlFor="">Blur</label>
                     </div>
 
                     {/* Grayscale */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setGrayscale(e.target.value)} value={grayscale} max={1} step={0.1} />
+                        <input type="range" onChange={(e) => {
+                            setGrayscale(e.target.value)}} value={grayscale} max={1} step={0.1} />
                         <label htmlFor="">Grayscale</label>
                     </div>
 
                     {/* hue rotate */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setHuerotate(e.target.value)} value={hueRotate} max={360} step={1} />
+                        <input type="range" onChange={(e) => {
+                            setHuerotate(e.target.value)}} value={hueRotate} max={360} step={1} />
                         <label htmlFor="">hueRotate</label>
                     </div>
 
                     {/* sepia */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setSepia(e.target.value)} value={sepia} max={1} step={0.1} />
+                        <input type="range" onChange={(e) => {
+                            setSepia(e.target.value)}} value={sepia} max={1} step={0.1} />
                         <label htmlFor="">sepia</label>
                     </div>
 
                     {/* invert */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setInvert(e.target.value)} value={invert} max={1} step={0.1} />
+                        <input type="range" onChange={(e) => {
+                            setInvert(e.target.value)}} value={invert} max={1} step={0.1} />
                         <label htmlFor="">invert</label>
                     </div>
 
-                    {/* saturate */}
-                    <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setSaturate(e.target.value)} value={saturate} max={3} step={0.1} />
-                        <label htmlFor="">saturate</label>
-                    </div>
-
-                    {/* Contrast */}
-                    <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setContrast(e.target.value)} value={contrast} max={3} step={0.1} />
-                        <label htmlFor="">Contrast</label>
-                    </div>
-
-                    {/* Brightness */}
-                    <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setBrightness(e.target.value)} value={brightness} max={3} step={0.1} />
-                        <label htmlFor="">Brightness</label>
-                    </div>
 
                     {/* Opacite */}
                     <div className="part" style={{ pointerEvents: all}}>
-                        <input type="range" onChange={(e) => setOpacity(e.target.value)} value={opacity} max={1} step={0.1} />
+                        <input type="range" onChange={(e) => {
+                            setOpacity(e.target.value)}} value={opacity} max={1} step={0.1} />
                         <label htmlFor="">Opacite</label>
                     </div>
 
 
                     <div className="buttons p-4 flex items-center justify-center gap-3">
-                        <button className="download" style={{ display: block }}><a download="image" id="download" href="">Download</a></button>
-                        <button className="reset" href="" style={{ display: block }} onClick={() => {
+                        <button className="download" style={{ display: block  }}><a download="image" id="download" href="">Download</a></button>
+                        <button className="reset" href="" style={{ display: block  }} onClick={() => {
                             setBlur(0)
                             setBrightness(1)
                             setGrayscale(0)

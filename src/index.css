@@ -89,6 +89,8 @@ form {
 }
 
 
+/* This is Button  */
+
 .download,
 .reset {
     display: none;
@@ -128,7 +130,7 @@ button:hover::before {
 }
 
 
-
+/* #####################  */
 
 
 /* custom input file */
