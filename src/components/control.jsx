@@ -20,15 +20,15 @@ export default function Control() {
 
     const values =
         `
-    blur(${blur}px) 
-    grayscale(${grayscale}) 
-    brightness(${brightness}) 
-    contrast(${contrast}) 
-    hue-rotate(${hueRotate}deg)
-    opacity(${opacity})
-    saturate(${saturate})
-    sepia(${sepia})
-    invert(${invert})
+        blur(${blur}px) 
+        grayscale(${grayscale}) 
+        brightness(${brightness}) 
+        contrast(${contrast}) 
+        hue-rotate(${hueRotate}deg)
+        opacity(${opacity})
+        saturate(${saturate})
+        sepia(${sepia})
+        invert(${invert})
     `;
 
 
@@ -53,6 +53,7 @@ export default function Control() {
 
         dow.onclick = () => {
             dow.href = canvas.toDataURL();
+            window.location.reload()
         }
     })
 
@@ -61,14 +62,15 @@ export default function Control() {
         let up = eve.target
         fe.readAsDataURL(up.files[0])
         fe.onload = () => {
-            setSR(fe.result)
+            window.sessionStorage.setItem("sssrc" , fe.result)
+            setSR(window.sessionStorage.getItem("sssrc"))
             setNone("none")
             setBlock("block")
             setAll("all")
             setFlex("flex")
         }
     }
-    
+
     return (
         <>
             <label className="custum-file-upload" style={{ display: none }} htmlFor="file">
@@ -81,7 +83,7 @@ export default function Control() {
                 <input type="file" onChange={(eve) => shows(eve)} id="file" />
             </label>
 
-            <div className="container flex justify-between items-center rounded-md mt-auto" style={{ display: flex }}>
+            <div className="container p-2 flex justify-between items-center rounded-md mt-auto" style={{ display: flex }}>
                 
                 <div className="bord">
                     <img className='' id="Im" src={SR} alt="" style={{ filter: values}} />
